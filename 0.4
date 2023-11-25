@@ -9,8 +9,10 @@ sequenceDiagram
 
     browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
+    Note right of browser: The form submit event
     server-->>browser: HTTP status code 302. This is a URL redirect
     deactivate server
+    Note left of server: The server asks the browser to do a new HTTP GET request to the address defined in the header's Location
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
